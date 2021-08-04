@@ -1,0 +1,18 @@
+{
+  "name": "pizzas",
+  "version": "1.0.0",
+  "description": "Pizzas Api",
+  "main": "server.js",
+  "scripts": {
+    "start": "json-server -p=5000 pizzas.js"
+  },
+  "keywords": [
+    "json-server, node, REST API"
+  ],
+  "author": "Osama Rezk",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^5.5.3",
+    "json-server": "^0.12.1"
+  }
+}
