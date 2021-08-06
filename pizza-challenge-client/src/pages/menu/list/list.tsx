@@ -8,7 +8,7 @@ interface ListProps {
 export function List(props: ListProps) {
   const { items } = props;
   return (
-    <Container>
+    <Container data-testid="pizza-list">
       {items.map((item: PizzaItem) => (
         <ItemCard item={item} />
       ))}
