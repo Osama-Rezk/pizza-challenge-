@@ -1,6 +1,6 @@
 import { PizzaItem } from "../../../types";
 import { ItemCard } from "../itemCard";
-
+import { Container } from "./list.style";
 interface ListProps {
   items: PizzaItem[];
 }
@@ -8,10 +8,10 @@ interface ListProps {
 export function List(props: ListProps) {
   const { items } = props;
   return (
-    <div>
+    <Container>
       {items.map((item: PizzaItem) => (
         <ItemCard item={item} />
       ))}
-    </div>
+    </Container>
   );
 }

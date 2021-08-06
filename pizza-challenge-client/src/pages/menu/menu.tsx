@@ -12,6 +12,48 @@ export function Menu() {
             description: "A classic pizza with our special sauce.",
             images: [],
           },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
+          {
+            id: "pizza",
+            name: "Pizza",
+            price: 15,
+            description: "A classic pizza with our special sauce.",
+            images: [],
+          },
         ]}
       />
     </div>
