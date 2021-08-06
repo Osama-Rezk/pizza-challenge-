@@ -1,5 +1,11 @@
+import { Menu } from "./pages/menu";
+
 function App() {
-  return <div>Pizza challenge client</div>;
+  return (
+    <div>
+      <Menu />
+    </div>
+  );
 }
 
 export default App;
