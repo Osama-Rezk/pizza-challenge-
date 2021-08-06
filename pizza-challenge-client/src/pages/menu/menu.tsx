@@ -2,7 +2,7 @@ import { List } from "./list";
 
 export function Menu() {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <List
         items={[
           {
