@@ -9,8 +9,8 @@ let item = {
   images: [],
 };
 
-describe("testing Hotel Card  Component ", () => {
-  it("The Hotel Card Should Render As Expected  ", () => {
+describe("testing Pizza Card  Component ", () => {
+  it("The Pizza Card Should Render As Expected  ", () => {
     render(<ItemCard item={item} />);
 
     expect(screen.getByTestId("name")).toHaveTextContent(item.name);
