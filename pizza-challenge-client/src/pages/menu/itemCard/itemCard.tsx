@@ -20,20 +20,20 @@ export function ItemCard(props: ItemCardProps) {
   return (
     <Container>
       <StyledImage
-        alt={`a picture of hotel ${name}`}
+        alt={`a picture of Pizza ${name}`}
         id="artistpic"
         src={images[0]}
         placeHolderStyle={{ height: 200 }}
       />
       <InfoContainer>
-        <Name aria-label="Hotel Name" data-testid="name">
+        <Name aria-label="Pizza Name" data-testid="name">
           {name}
         </Name>
-        <Description aria-label="Hotel description" data-testid="description">
+        <Description aria-label="Pizza description" data-testid="description">
           {description}
         </Description>
         <PriceBtnContainer>
-          <Price aria-label="distance Price Category" data-testid="category">
+          <Price aria-label="Pizza Price " data-testid="category">
             $ Price based on Selection
           </Price>
           <Plus />
