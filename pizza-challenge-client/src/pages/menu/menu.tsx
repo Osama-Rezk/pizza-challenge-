@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { List } from "./list";
-import { Modal } from "../../components/modal";
 import { PizzaItem } from "../../types";
-import { Accordion } from "../../components";
+import { ItemOptionsModal } from "./itemOptionsModal";
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentItem, setCurrentItem] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({} as PizzaItem);
 
   const onItemClick = (item: PizzaItem) => {
-    setCurrentItem(currentItem);
+    setSelectedItem(item);
     setIsOpen(true);
   };
 
@@ -69,24 +68,11 @@ export function Menu() {
           },
         ]}
       />
-      <Modal
-        title={"Add Item Choices"}
-        onClose={() => {
-          setIsOpen(false);
-        }}
-        open={isOpen}
-      >
-        <Accordion title="Please Choose (choose one )" isOpenDefault={true}>
-          Sizes
-        </Accordion>
-
-        <Accordion
-          title="Topping (Choose items from the list)"
-          isOpenDefault={true}
-        >
-          Topping
-        </Accordion>
-      </Modal>
+      <ItemOptionsModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        selectedItem={selectedItem}
+      />
     </div>
   );
 }

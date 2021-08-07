@@ -15,7 +15,7 @@ export const color = {
   dark: "rgb(33, 33, 33)",
   white: "white",
   backDrop: "rgba(51, 51, 51, 0.3)",
-
+  darkCharcoal: "rgb(51, 51, 51)",
   gray: "#ccc",
   lightGray: "rgb(229, 229, 229)",
   lightGray2: "#eee",
