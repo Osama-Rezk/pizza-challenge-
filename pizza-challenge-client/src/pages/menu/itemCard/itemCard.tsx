@@ -12,13 +12,14 @@ import { Plus } from "../../../components/icons";
 
 interface ItemCardProps {
   item: PizzaItem;
+  onClick: (item: PizzaItem) => void;
 }
 
 export function ItemCard(props: ItemCardProps) {
-  const { item } = props;
+  const { item, onClick } = props;
   const { name, images, description } = item;
   return (
-    <Container>
+    <Container onClick={() => onClick(item)}>
       <StyledImage
         alt={`a picture of Pizza ${name}`}
         id="artistpic"
@@ -36,7 +37,7 @@ export function ItemCard(props: ItemCardProps) {
           <Price aria-label="Pizza Price " data-testid="category">
             $ Price based on Selection
           </Price>
-          <Plus />
+          <Plus style={{ cursor: "pointer" }} />
         </PriceBtnContainer>
       </InfoContainer>
     </Container>

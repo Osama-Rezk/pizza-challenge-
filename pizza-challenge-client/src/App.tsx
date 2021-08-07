@@ -1,18 +1,19 @@
 import { Menu } from "./pages/menu";
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { mq, space } from "./styles";
 
 export const Container = styled.div({
   maxWidth: 1170,
-  padding: "0 16px",
+  padding: ` 0 ${space[2]}px `,
   margin: "0 auto",
   width: "100%",
   display: "flex",
   flexDirection: "row",
   boxSizing: "border-box",
 
-  "@media screen and (max-width: 575px)": {
-    padding: "0 5px",
+  [mq.large]: {
+    padding: `0 ${space[1]}px `,
   },
 });
 

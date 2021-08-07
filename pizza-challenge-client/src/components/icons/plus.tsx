@@ -10,8 +10,8 @@ function Plus(props: SVGProps<SVGSVGElement>) {
       version="1.1"
       viewBox="0 0 50 50"
       xmlSpace="preserve"
-      height={20}
-      width={20}
+      height={25}
+      width={25}
       {...props}
     >
       <circle cx="25" cy="25" r="25" fill="#43B05C"></circle>
