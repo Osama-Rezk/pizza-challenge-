@@ -1,6 +1,6 @@
-import { Modal } from "../../../components/modal";
-import { Accordion } from "../../../components";
-import { PizzaItem } from "../../../types";
+import { useState } from "react";
+import { Modal, RadioButton, Accordion } from "../../../components";
+import { PizzaItem, Size } from "../../../types";
 import {
   Name,
   Description,
@@ -11,6 +11,7 @@ import {
   Quantity,
   CurrencySymbol,
   QtyPriceContainer,
+  SizesContainer,
 } from "./itemOptionsModal.style";
 
 interface ItemOptionsModalProps {
@@ -21,8 +22,20 @@ interface ItemOptionsModalProps {
 
 export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const { setIsOpen, isOpen, selectedItem } = props;
+  const [size, setSize] = useState("");
+  const { name, description, sizes = [] } = selectedItem;
 
-  const { name, description } = selectedItem;
+  const renderSizes = () => {
+    return sizes.map(({ name, price }: Size, index) => (
+      <RadioButton
+        value={name.toLowerCase()}
+        onChange={(e) => setSize(e.target.value)}
+        checked={name.toLowerCase() === size}
+        key={index}
+        label={`${name} (${price})`}
+      />
+    ));
+  };
 
   return (
     <Modal
@@ -48,7 +61,7 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       </InfoContainer>
 
       <Accordion title="Please Choose (choose one )" isOpenDefault={true}>
-        Sizes
+        <SizesContainer>{renderSizes()}</SizesContainer>
       </Accordion>
 
       <Accordion

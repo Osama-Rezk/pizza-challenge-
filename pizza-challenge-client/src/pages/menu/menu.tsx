@@ -23,6 +23,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -30,6 +41,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -37,6 +59,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -44,6 +77,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -51,6 +95,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -58,6 +113,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -65,6 +131,17 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
         ]}
       />

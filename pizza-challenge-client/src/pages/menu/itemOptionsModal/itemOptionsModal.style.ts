@@ -53,3 +53,8 @@ export const PriceLabel = styled.strong({
   fontWeight: 700,
   margin: `0 ${space[1]}px`,
 });
+
+export const SizesContainer = styled.div({
+  display: "flex",
+  flexDirection: "row",
+});
