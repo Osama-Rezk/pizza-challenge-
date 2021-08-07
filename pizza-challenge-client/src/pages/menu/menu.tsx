@@ -2,6 +2,7 @@ import { useState } from "react";
 import { List } from "./list";
 import { Modal } from "../../components/modal";
 import { PizzaItem } from "../../types";
+import { Accordion } from "../../components";
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +76,16 @@ export function Menu() {
         }}
         open={isOpen}
       >
-        here i am
+        <Accordion title="Please Choose (choose one )" isOpenDefault={true}>
+          Sizes
+        </Accordion>
+
+        <Accordion
+          title="Topping (Choose items from the list)"
+          isOpenDefault={true}
+        >
+          Topping
+        </Accordion>
       </Modal>
     </div>
   );

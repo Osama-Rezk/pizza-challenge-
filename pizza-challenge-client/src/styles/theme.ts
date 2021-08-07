@@ -11,11 +11,15 @@ export const space = [
 
 export const color = {
   transparent: "transparent",
-  lightGray: "rgb(229, 229, 229)",
   black: "black",
   dark: "rgb(33, 33, 33)",
   white: "white",
   backDrop: "rgba(51, 51, 51, 0.3)",
+
+  gray: "#ccc",
+  lightGray: "rgb(229, 229, 229)",
+  lightGray2: "#eee",
+  darkGray: "#444",
 };
 
 export const fontSize = {
