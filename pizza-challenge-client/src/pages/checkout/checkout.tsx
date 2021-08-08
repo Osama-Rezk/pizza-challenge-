@@ -10,6 +10,7 @@ import {
 } from "./checkout.style";
 import { Size, Addon } from "../../types";
 import { calculatePizzaPrice } from "../../utils";
+import { CreditCardForm } from "../../components/creditCardForm";
 
 interface CheckoutProps {}
 
@@ -66,7 +67,9 @@ export const Checkout = (props: CheckoutProps) => {
 
       <Section>
         <SectionTitle>Payment </SectionTitle>
-        <SectionBody>Credit Card</SectionBody>
+        <SectionBody>
+          <CreditCardForm />
+        </SectionBody>
       </Section>
     </Container>
   );
