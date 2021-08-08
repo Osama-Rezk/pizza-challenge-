@@ -23,6 +23,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -41,6 +60,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -59,6 +97,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -77,6 +134,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -95,6 +171,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -113,6 +208,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {
@@ -131,6 +245,25 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
             sizes: [
               { name: "Small", price: 20 },
               {

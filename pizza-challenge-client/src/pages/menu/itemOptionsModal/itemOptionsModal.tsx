@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Modal, RadioButton, Accordion } from "../../../components";
-import { PizzaItem, Size } from "../../../types";
+import { ChangeEvent, useState } from "react";
+import { Modal, CheckInput, Accordion } from "../../../components";
+import { PizzaItem, Size, Addon } from "../../../types";
 import {
   Name,
   Description,
@@ -11,7 +11,7 @@ import {
   Quantity,
   CurrencySymbol,
   QtyPriceContainer,
-  SizesContainer,
+  OptionsContainer,
 } from "./itemOptionsModal.style";
 
 interface ItemOptionsModalProps {
@@ -23,11 +23,13 @@ interface ItemOptionsModalProps {
 export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const { setIsOpen, isOpen, selectedItem } = props;
   const [size, setSize] = useState("");
-  const { name, description, sizes = [] } = selectedItem;
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+
+  const { name, description, sizes = [], addons = [] } = selectedItem;
 
   const renderSizes = () => {
     return sizes.map(({ name, price }: Size, index) => (
-      <RadioButton
+      <CheckInput
         value={name.toLowerCase()}
         onChange={(e) => setSize(e.target.value)}
         checked={name.toLowerCase() === size}
@@ -36,6 +38,30 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       />
     ));
   };
+
+  const renderAddOns = () => {
+    return addons.map(({ name, price }: Addon, index) => (
+      <CheckInput
+        value={name.toLowerCase()}
+        onChange={handleAddonChange}
+        checked={selectedAddons.includes(name.toLowerCase())}
+        key={index}
+        type="checkbox"
+        label={`${name} (${price})`}
+      />
+    ));
+  };
+
+  function handleAddonChange(e: ChangeEvent<HTMLInputElement>) {
+    let addonsCopy = [...selectedAddons];
+
+    if (e.target.checked) {
+      addonsCopy.push(e.target.value);
+    } else {
+      addonsCopy = addonsCopy.filter((x) => x !== e.target.value);
+    }
+    setSelectedAddons(addonsCopy);
+  }
 
   return (
     <Modal
@@ -61,14 +87,14 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       </InfoContainer>
 
       <Accordion title="Please Choose (choose one )" isOpenDefault={true}>
-        <SizesContainer>{renderSizes()}</SizesContainer>
+        <OptionsContainer>{renderSizes()}</OptionsContainer>
       </Accordion>
 
       <Accordion
         title="Topping (Choose items from the list)"
         isOpenDefault={true}
       >
-        Topping
+        <OptionsContainer>{renderAddOns()}</OptionsContainer>
       </Accordion>
     </Modal>
   );

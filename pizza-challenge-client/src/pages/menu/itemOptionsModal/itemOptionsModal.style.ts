@@ -54,7 +54,7 @@ export const PriceLabel = styled.strong({
   margin: `0 ${space[1]}px`,
 });
 
-export const SizesContainer = styled.div({
-  display: "flex",
-  flexDirection: "row",
+export const OptionsContainer = styled.div({
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
 });
