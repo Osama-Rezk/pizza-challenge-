@@ -81,7 +81,7 @@ export const Content = styled.div({
     height: "100%",
   },
   [mq.large]: {
-    width: "60%",
+    width: "45%",
     height: "60%",
   },
 });

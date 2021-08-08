@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { List } from "./list";
-import { Modal } from "../../components/modal";
 import { PizzaItem } from "../../types";
+import { ItemOptionsModal } from "./itemOptionsModal";
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentItem, setCurrentItem] = useState(false);
+  const [selectedItem, setSelectedItem] = useState({} as PizzaItem);
 
   const onItemClick = (item: PizzaItem) => {
-    setCurrentItem(currentItem);
+    setSelectedItem(item);
     setIsOpen(true);
   };
 
@@ -23,6 +23,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -30,6 +60,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -37,6 +97,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -44,6 +134,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -51,6 +171,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -58,6 +208,36 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
           {
             id: "pizza",
@@ -65,18 +245,44 @@ export function Menu() {
             price: 15,
             description: "A classic pizza with our special sauce.",
             images: [],
+            addons: [
+              {
+                name: "Olives",
+                price: 3,
+              },
+              {
+                name: "Pepperoni",
+                price: 4,
+              },
+              {
+                name: "Mushrooms",
+                price: 2,
+              },
+
+              {
+                name: "Pepper",
+                price: 2,
+              },
+            ],
+            sizes: [
+              { name: "Small", price: 20 },
+              {
+                name: "medium",
+                price: 25,
+              },
+              {
+                name: "Large",
+                price: 30,
+              },
+            ],
           },
         ]}
       />
-      <Modal
-        title={"Add Item Choices"}
-        onClose={() => {
-          setIsOpen(false);
-        }}
-        open={isOpen}
-      >
-        here i am
-      </Modal>
+      <ItemOptionsModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        selectedItem={selectedItem}
+      />
     </div>
   );
 }
