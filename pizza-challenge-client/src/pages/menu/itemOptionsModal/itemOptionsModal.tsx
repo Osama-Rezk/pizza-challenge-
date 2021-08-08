@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { Modal, CheckInput, Accordion } from "../../../components";
 import { PizzaItem, Size, Addon } from "../../../types";
 import {
@@ -13,6 +13,7 @@ import {
   QtyPriceContainer,
   OptionsContainer,
 } from "./itemOptionsModal.style";
+import { calculatePizzaPrice } from "../../../utils";
 
 interface ItemOptionsModalProps {
   isOpen: boolean;
@@ -22,17 +23,19 @@ interface ItemOptionsModalProps {
 
 export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const { setIsOpen, isOpen, selectedItem } = props;
-  const [size, setSize] = useState("");
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+  const [size, setSize] = useState({} as Size);
+  const [selectedAddons, setSelectedAddons] = useState<Addon[]>([]);
 
   const { name, description, sizes = [], addons = [] } = selectedItem;
+
+  const price = calculatePizzaPrice(size, selectedAddons);
 
   const renderSizes = () => {
     return sizes.map(({ name, price }: Size, index) => (
       <CheckInput
-        value={name.toLowerCase()}
-        onChange={(e) => setSize(e.target.value)}
-        checked={name.toLowerCase() === size}
+        value={name}
+        onChange={() => setSize({ name, price })}
+        checked={name === size.name}
         key={index}
         label={`${name} (${price})`}
       />
@@ -42,9 +45,9 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const renderAddOns = () => {
     return addons.map(({ name, price }: Addon, index) => (
       <CheckInput
-        value={name.toLowerCase()}
-        onChange={handleAddonChange}
-        checked={selectedAddons.includes(name.toLowerCase())}
+        value={name}
+        onChange={(e) => handleAddonChange({ name, price }, e.target.checked)}
+        checked={selectedAddons.findIndex((addon) => addon.name === name) > -1}
         key={index}
         type="checkbox"
         label={`${name} (${price})`}
@@ -52,13 +55,13 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
     ));
   };
 
-  function handleAddonChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleAddonChange({ name, price }: Addon, checked: boolean) {
     let addonsCopy = [...selectedAddons];
 
-    if (e.target.checked) {
-      addonsCopy.push(e.target.value);
+    if (checked) {
+      addonsCopy.push({ name, price });
     } else {
-      addonsCopy = addonsCopy.filter((x) => x !== e.target.value);
+      addonsCopy = addonsCopy.filter((addon) => addon.name !== name);
     }
     setSelectedAddons(addonsCopy);
   }
@@ -77,13 +80,17 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
           <Description>{description}</Description>
         </NameDescriptionContainer>
 
-        <PriceContainer>
-          <PriceLabel>Price:</PriceLabel>
-          <QtyPriceContainer>
-            <CurrencySymbol>$</CurrencySymbol>
-            <Quantity>550</Quantity>
-          </QtyPriceContainer>
-        </PriceContainer>
+        {price > 0 ? (
+          <PriceContainer>
+            <PriceLabel>Price:</PriceLabel>
+            <QtyPriceContainer>
+              <CurrencySymbol>$</CurrencySymbol>
+              <Quantity>{price}</Quantity>
+            </QtyPriceContainer>
+          </PriceContainer>
+        ) : (
+          "Price On Selection"
+        )}
       </InfoContainer>
 
       <Accordion title="Please Choose (choose one )" isOpenDefault={true}>
