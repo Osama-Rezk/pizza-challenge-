@@ -1,10 +1,11 @@
 import valid from "card-validator";
 import { useFormik } from "formik";
 import { string, object } from "yup";
-import { ButtonContainer, Row } from "./creditCardForm.style";
+import { ButtonContainer } from "./creditCardForm.style";
 
 import { Input } from "../input";
 import { Button } from "../button";
+import { useHistory } from "react-router-dom";
 
 const creditCardSchema = object().shape({
   cardNumber: string()
@@ -35,6 +36,8 @@ const creditCardSchema = object().shape({
 });
 
 export const CreditCardForm = () => {
+  const history = useHistory();
+
   const {
     handleSubmit,
     handleChange,
@@ -52,6 +55,7 @@ export const CreditCardForm = () => {
     },
     onSubmit: async (values, { setSubmitting }) => {
       try {
+        history.push("/order/1");
       } catch (error) {
         setSubmitting(false);
       }

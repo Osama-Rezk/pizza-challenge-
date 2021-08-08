@@ -7,9 +7,3 @@ export const ButtonContainer = styled.div({
   width: "100%",
   justifyContent: "center",
 });
-
-export const Row = styled.div({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-});
