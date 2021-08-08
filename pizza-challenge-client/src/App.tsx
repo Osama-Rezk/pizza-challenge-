@@ -1,7 +1,7 @@
-import { Menu } from "./pages/menu";
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { mq, space } from "./styles";
+import Routes from "./routes";
 
 export const Container = styled.div({
   maxWidth: 1170,
@@ -38,7 +38,7 @@ function App() {
         `}
       />
       <Container data-testid="app-container">
-        <Menu />
+        <Routes />
       </Container>
     </div>
   );
