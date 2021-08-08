@@ -58,3 +58,11 @@ export const OptionsContainer = styled.div({
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
 });
+
+export const ButtonContainer = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  width: "100%",
+  justifyContent: "center",
+});

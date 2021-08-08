@@ -20,6 +20,8 @@ export const color = {
   lightGray: "rgb(229, 229, 229)",
   lightGray2: "#eee",
   darkGray: "#444",
+  green: "rgb(0, 165, 60)",
+  nobelGray: "#9b9b9b",
 };
 
 export const fontSize = {

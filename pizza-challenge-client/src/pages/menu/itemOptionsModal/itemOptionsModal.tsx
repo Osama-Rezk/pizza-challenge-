@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, CheckInput, Accordion } from "../../../components";
+import { Modal, CheckInput, Accordion, Button } from "../../../components";
 import { PizzaItem, Size, Addon } from "../../../types";
 import {
   Name,
@@ -12,6 +12,7 @@ import {
   CurrencySymbol,
   QtyPriceContainer,
   OptionsContainer,
+  ButtonContainer,
 } from "./itemOptionsModal.style";
 import { calculatePizzaPrice } from "../../../utils";
 
@@ -103,6 +104,14 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       >
         <OptionsContainer>{renderAddOns()}</OptionsContainer>
       </Accordion>
+
+      <ButtonContainer>
+        <Button
+          style={{ width: "200px" }}
+          label="CHECKOUT"
+          onClickHandler={() => console.log("Checkout Button Clicked")}
+        />
+      </ButtonContainer>
     </Modal>
   );
 };
