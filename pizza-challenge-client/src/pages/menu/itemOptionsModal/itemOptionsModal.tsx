@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Modal, CheckInput, Accordion, Button } from "../../../components";
 import { PizzaItem, Size, Addon } from "../../../types";
 import {
@@ -28,8 +29,9 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const [selectedAddons, setSelectedAddons] = useState<Addon[]>([]);
 
   const { name, description, sizes = [], addons = [] } = selectedItem;
-
   const price = calculatePizzaPrice(size, selectedAddons);
+
+  const history = useHistory();
 
   const renderSizes = () => {
     return sizes.map(({ name, price }: Size, index) => (
@@ -65,6 +67,19 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       addonsCopy = addonsCopy.filter((addon) => addon.name !== name);
     }
     setSelectedAddons(addonsCopy);
+  }
+
+  function goToCheckout() {
+    localStorage.setItem(
+      "pizza",
+      JSON.stringify({
+        ...selectedItem,
+        size,
+        selectedAddons,
+      })
+    );
+
+    history.push("/checkout");
   }
 
   return (
@@ -109,7 +124,7 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
         <Button
           style={{ width: "200px" }}
           label="CHECKOUT"
-          onClickHandler={() => console.log("Checkout Button Clicked")}
+          onClickHandler={goToCheckout}
         />
       </ButtonContainer>
     </Modal>
