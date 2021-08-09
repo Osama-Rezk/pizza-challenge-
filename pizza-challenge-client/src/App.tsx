@@ -2,6 +2,7 @@ import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { mq, space } from "./styles";
 import Routes from "./routes";
+import { AppProviders } from "./AppProviders";
 
 export const Container = styled.div({
   maxWidth: 1170,
@@ -19,7 +20,7 @@ export const Container = styled.div({
 
 function App() {
   return (
-    <div>
+    <>
       <Global
         styles={css`
           body {
@@ -37,10 +38,12 @@ function App() {
           }
         `}
       />
-      <Container data-testid="app-container">
-        <Routes />
-      </Container>
-    </div>
+      <AppProviders>
+        <Container data-testid="app-container">
+          <Routes />
+        </Container>
+      </AppProviders>
+    </>
   );
 }
 
