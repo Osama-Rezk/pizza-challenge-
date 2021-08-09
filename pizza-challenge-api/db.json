@@ -1,3 +1,226 @@
 {
-  "pizzas": []
+  "pizzas": [
+    {
+      "id": "1",
+      "name": "Vegetables Pizza",
+      "description": "Onions, olives, green peppers, tomatoes, mozzarella cheese and tomato sauce.",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 30 },
+        {
+          "name": "medium",
+          "price": 40
+        },
+        {
+          "name": "Large",
+          "price": 50
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "2",
+      "name": "Margherita Pizza      ",
+      "description": "Mozzarella cheese and pizza sauce      .",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 40 },
+        {
+          "name": "medium",
+          "price": 55
+        },
+        {
+          "name": "Large",
+          "price": 60
+        }
+      ],
+      "images": []
+    },
+
+    {
+      "id": "3",
+      "name": "Chicken Ranch Pizza",
+      "description": "Grilled chicken, spicy jalapeno slices, tomatoes, mushrooms and ranch sauce",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 70 },
+        {
+          "name": "medium",
+          "price": 80
+        },
+        {
+          "name": "Large",
+          "price": 90
+        }
+      ],
+      "images": []
+    },
+
+    {
+      "id": "4",
+      "name": "BBQ Chicken Poppers Pizza",
+      "description": "Chicken poppers, beef bacon, onions, mozzarella cheese, ranch sauce and barbecue sauce.",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 35 },
+        {
+          "name": "medium",
+          "price": 45
+        },
+        {
+          "name": "Large",
+          "price": 55
+        }
+      ],
+      "images": []
+    },
+
+    {
+      "id": "5",
+      "name": "Chicken Creamy Pizza",
+      "description": "Grilled chicken, mushrooms, onions, mozzarella cheese and creamy cheese sauce.      ",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 40 },
+        {
+          "name": "medium",
+          "price": 50
+        },
+        {
+          "name": "Large",
+          "price": 70
+        }
+      ],
+      "images": []
+    },
+
+    {
+      "id": "6",
+      "name": "Cheese Burger Pizza",
+      "description": "Italian sausage, tomatoes, onions, mozzarella cheese and burger sauce.",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        { "name": "Small", "price": 85 },
+        {
+          "name": "medium",
+          "price": 90
+        },
+        {
+          "name": "Large",
+          "price": 100
+        }
+      ],
+      "images": []
+    }
+  ],
+  "orders": [],
+  "users": []
 }
