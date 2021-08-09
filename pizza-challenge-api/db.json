@@ -227,6 +227,82 @@
         }
       ],
       "images": []
+    },
+    {
+      "id": "7",
+      "name": "Chicken Supreme Pizza      ",
+      "description": "Marinated chicken pieces, mushrooms, onions, green peppers, olives, tomatoes and mozzarella cheese      .",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 85
+        },
+        {
+          "name": "medium",
+          "price": 90
+        },
+        {
+          "name": "Large",
+          "price": 100
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "8",
+      "name": "Hot Dog Pizza      ",
+      "description": "Hot dog, green peppers, tomatoes, black olives, mozzarella cheese and tomato sauce      .",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 85
+        },
+        {
+          "name": "medium",
+          "price": 90
+        },
+        {
+          "name": "Large",
+          "price": 100
+        }
+      ],
+      "images": []
     }
   ],
   "orders": [

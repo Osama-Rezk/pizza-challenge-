@@ -24,11 +24,10 @@ interface ModalProps {
   contentStyle?: CSSProperties;
 }
 export function Modal(props: PropsWithChildren<ModalProps>) {
-  useLockBodyScroll();
-
   const [active, setActive] = useState(false);
   const { open, onClose, title } = props;
   const backdrop = useRef<HTMLDivElement>(null);
+  useLockBodyScroll(open);
 
   useEffect(() => {
     const { current } = backdrop;

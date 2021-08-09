@@ -2,6 +2,7 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { Menu } from "./pages/menu";
 import { Checkout } from "./pages/checkout";
 import { OrderConfirmation } from "./pages/orderConfirmation";
+import { Header } from "../src/components/header";
 
 import styled from "@emotion/styled";
 
@@ -15,6 +16,8 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Container>
+        <Header />
+
         <Switch>
           <Route exact path="/">
             <Menu />
