@@ -4,7 +4,7 @@
   "description": "Pizzas Api",
   "main": "server.js",
   "scripts": {
-    "start": "json-server -p=5000 pizzas.js"
+    "start": "node   server.js"
   },
   "keywords": [
     "json-server, node, REST API"
