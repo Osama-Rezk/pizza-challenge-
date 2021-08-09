@@ -1,3 +1,4 @@
+import { useMutation } from "react-query";
 import {
   Container,
   SectionTitle,
@@ -9,12 +10,22 @@ import {
   Value,
 } from "./checkout.style";
 import { Size, Addon } from "../../types";
-import { calculatePizzaPrice } from "../../utils";
+import { calculatePizzaPrice, client } from "../../utils";
 import { CreditCardForm } from "../../components/creditCardForm";
 
 interface CheckoutProps {}
 
 export const Checkout = (props: CheckoutProps) => {
+  const { isLoading, isError, isSuccess, mutate } = useMutation(
+    (updates) =>
+      client(`orders`, {
+        data: updates,
+      }),
+    {
+      mutationKey: "orders",
+    }
+  );
+
   const {
     name,
     description,
@@ -68,7 +79,7 @@ export const Checkout = (props: CheckoutProps) => {
       <Section>
         <SectionTitle>Payment </SectionTitle>
         <SectionBody>
-          <CreditCardForm />
+          <CreditCardForm order={mutate} />
         </SectionBody>
       </Section>
     </Container>

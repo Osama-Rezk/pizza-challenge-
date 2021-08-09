@@ -2,7 +2,7 @@ import valid from "card-validator";
 import { useFormik } from "formik";
 import { string, object } from "yup";
 import { ButtonContainer } from "./creditCardForm.style";
-
+import { UseMutationOptions } from "react-query";
 import { Input } from "../input";
 import { Button } from "../button";
 import { useHistory } from "react-router-dom";
@@ -35,8 +35,13 @@ const creditCardSchema = object().shape({
     .required(),
 });
 
-export const CreditCardForm = () => {
+interface CreditCardFormProps {
+  order: (item: any, options: UseMutationOptions) => void;
+}
+export const CreditCardForm = (props: CreditCardFormProps) => {
   const history = useHistory();
+
+  const { order } = props;
 
   const {
     handleSubmit,
@@ -55,7 +60,9 @@ export const CreditCardForm = () => {
     },
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        history.push("/order/1");
+        await order(JSON.parse(localStorage.getItem("pizza") || ""), {
+          onSuccess: (d) => history.push("/order/1"),
+        });
       } catch (error) {
         setSubmitting(false);
       }

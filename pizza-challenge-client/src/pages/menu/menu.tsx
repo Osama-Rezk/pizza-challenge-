@@ -1,283 +1,29 @@
 import { useState } from "react";
+import { useQuery } from "react-query";
+
 import { List } from "./list";
 import { PizzaItem } from "../../types";
 import { ItemOptionsModal } from "./itemOptionsModal";
+import { client } from "../../utils";
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({} as PizzaItem);
+
+  const { isLoading, error, data } = useQuery("pizzas", () => client("pizzas"));
 
   const onItemClick = (item: PizzaItem) => {
     setSelectedItem(item);
     setIsOpen(true);
   };
 
+  if (isLoading) return <div>"Loading..."</div>;
+
+  if (error) return <div> "An error has occurred: "</div>;
+
   return (
     <div style={{ width: "100%" }}>
-      <List
-        onItemClick={onItemClick}
-        items={[
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-          {
-            id: "pizza",
-            name: "Pizza",
-            price: 15,
-            description: "A classic pizza with our special sauce.",
-            images: [],
-            addons: [
-              {
-                name: "Olives",
-                price: 3,
-              },
-              {
-                name: "Pepperoni",
-                price: 4,
-              },
-              {
-                name: "Mushrooms",
-                price: 2,
-              },
-
-              {
-                name: "Pepper",
-                price: 2,
-              },
-            ],
-            sizes: [
-              { name: "Small", price: 20 },
-              {
-                name: "medium",
-                price: 25,
-              },
-              {
-                name: "Large",
-                price: 30,
-              },
-            ],
-          },
-        ]}
-      />
+      <List onItemClick={onItemClick} items={data} />
       <ItemOptionsModal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
