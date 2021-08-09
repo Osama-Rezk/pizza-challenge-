@@ -17,14 +17,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 30 },
+        {
+          "name": "Small",
+          "price": 30
+        },
         {
           "name": "medium",
           "price": 40
@@ -53,14 +55,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 40 },
+        {
+          "name": "Small",
+          "price": 40
+        },
         {
           "name": "medium",
           "price": 55
@@ -72,7 +76,6 @@
       ],
       "images": []
     },
-
     {
       "id": "3",
       "name": "Chicken Ranch Pizza",
@@ -90,14 +93,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 70 },
+        {
+          "name": "Small",
+          "price": 70
+        },
         {
           "name": "medium",
           "price": 80
@@ -109,7 +114,6 @@
       ],
       "images": []
     },
-
     {
       "id": "4",
       "name": "BBQ Chicken Poppers Pizza",
@@ -127,14 +131,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 35 },
+        {
+          "name": "Small",
+          "price": 35
+        },
         {
           "name": "medium",
           "price": 45
@@ -146,7 +152,6 @@
       ],
       "images": []
     },
-
     {
       "id": "5",
       "name": "Chicken Creamy Pizza",
@@ -164,14 +169,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 40 },
+        {
+          "name": "Small",
+          "price": 40
+        },
         {
           "name": "medium",
           "price": 50
@@ -183,7 +190,6 @@
       ],
       "images": []
     },
-
     {
       "id": "6",
       "name": "Cheese Burger Pizza",
@@ -201,14 +207,16 @@
           "name": "Mushrooms",
           "price": 2
         },
-
         {
           "name": "Pepper",
           "price": 2
         }
       ],
       "sizes": [
-        { "name": "Small", "price": 85 },
+        {
+          "name": "Small",
+          "price": 85
+        },
         {
           "name": "medium",
           "price": 90
@@ -221,6 +229,55 @@
       "images": []
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "2",
+      "name": "Margherita Pizza      ",
+      "description": "Mozzarella cheese and pizza sauce      .",
+      "addons": [
+        {
+          "name": "Olives",
+          "price": 3
+        },
+        {
+          "name": "Pepperoni",
+          "price": 4
+        },
+        {
+          "name": "Mushrooms",
+          "price": 2
+        },
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "sizes": [
+        {
+          "name": "Small",
+          "price": 40
+        },
+        {
+          "name": "medium",
+          "price": 55
+        },
+        {
+          "name": "Large",
+          "price": 60
+        }
+      ],
+      "images": [],
+      "size": {
+        "name": "medium",
+        "price": 55
+      },
+      "selectedAddons": [
+        {
+          "name": "Mushrooms",
+          "price": 2
+        }
+      ]
+    }
+  ],
   "users": []
 }

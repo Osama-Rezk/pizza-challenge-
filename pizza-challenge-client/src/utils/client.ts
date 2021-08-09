@@ -2,7 +2,7 @@ const apiURL = "http://localhost:5000";
 
 async function client(
   endpoint: string,
-  options?: { data?: any; headers?: any }
+  options?: { data?: any; headers?: Headers }
 ) {
   const { data, headers: customHeaders, ...customConfig } = options || {};
   const config = {
@@ -13,7 +13,7 @@ async function client(
       ...customHeaders,
     },
     ...customConfig,
-  };
+  } as RequestInit;
 
   return window
     .fetch(`${apiURL}/${endpoint}`, config)
