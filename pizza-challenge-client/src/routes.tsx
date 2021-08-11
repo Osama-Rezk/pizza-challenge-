@@ -1,4 +1,4 @@
-import { Switch, BrowserRouter, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Menu } from "./pages/menu";
 import { Checkout } from "./pages/checkout";
 import { OrderConfirmation } from "./pages/orderConfirmation";
@@ -14,26 +14,24 @@ const Container = styled.div({
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-      <Container>
-        <Header />
+    <Container>
+      <Header />
 
-        <Switch>
-          <Route exact path="/">
-            <Menu />
-          </Route>
+      <Switch>
+        <Route exact path="/">
+          <Menu />
+        </Route>
 
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
-          <Route path="/order/:id">
-            <OrderConfirmation />
-          </Route>
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
+        <Route path="/order/:id">
+          <OrderConfirmation />
+        </Route>
 
-          <Route component={() => <div>Route not found 404</div>} />
-        </Switch>
-      </Container>
-    </BrowserRouter>
+        <Route component={() => <div>Route not found 404</div>} />
+      </Switch>
+    </Container>
   );
 };
 

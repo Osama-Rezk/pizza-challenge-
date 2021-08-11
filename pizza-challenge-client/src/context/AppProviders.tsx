@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./authContext";
 
 const queryClient = new QueryClient({
@@ -24,7 +25,9 @@ export function AppProviders(props: PropsWithChildren<AppProvidersProps>) {
   const { children } = props;
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>{children}</AuthProvider>
+      <BrowserRouter>
+        <AuthProvider>{children}</AuthProvider>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
