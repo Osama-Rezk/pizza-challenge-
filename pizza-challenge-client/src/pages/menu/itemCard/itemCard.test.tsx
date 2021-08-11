@@ -12,7 +12,7 @@ let item = {
 };
 
 describe("testing Pizza Card  Component", () => {
-  it("The Pizza Card Should Render As Expected", () => {
+  it("The Pizza Card Should Render And Behave As Expected", () => {
     const mockOnClick = jest.fn();
 
     render(<ItemCard item={item} onClick={mockOnClick} />);
