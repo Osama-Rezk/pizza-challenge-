@@ -9,7 +9,7 @@ import {
 
 interface AccordionProps {
   title: string;
-  isOpenDefault: boolean;
+  isOpenDefault?: boolean;
 }
 
 export interface StyledProps extends HTMLAttributes<HTMLDivElement> {
@@ -22,11 +22,16 @@ export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
 
   return (
     <AccordionContainer>
-      <AccordionHeader onClick={() => setActive(!active)}>
+      <AccordionHeader
+        data-testid="accordion-header"
+        onClick={() => setActive(!active)}
+      >
         <AccordionTitle>{title}</AccordionTitle>
         <AccordionIcon active={active} />
       </AccordionHeader>
-      <AccordionBody active={active}>{children}</AccordionBody>
+      <AccordionBody data-testid="accordion-body" active={active}>
+        {children}
+      </AccordionBody>
     </AccordionContainer>
   );
 };
