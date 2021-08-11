@@ -47,3 +47,10 @@ export const DetailsContainer = styled.div({
   display: "flex",
   flexDirection: "column",
 });
+export const ButtonContainer = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  width: "100%",
+  justifyContent: "center",
+});

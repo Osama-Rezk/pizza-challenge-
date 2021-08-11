@@ -19,7 +19,8 @@ const queryClient = new QueryClient({
 });
 
 interface AppProvidersProps {}
-function AppProviders(props: PropsWithChildren<AppProvidersProps>) {
+
+export function AppProviders(props: PropsWithChildren<AppProvidersProps>) {
   const { children } = props;
   return (
     <QueryClientProvider client={queryClient}>
@@ -27,5 +28,3 @@ function AppProviders(props: PropsWithChildren<AppProvidersProps>) {
     </QueryClientProvider>
   );
 }
-
-export { AppProviders };

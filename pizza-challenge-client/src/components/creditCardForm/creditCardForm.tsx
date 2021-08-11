@@ -5,15 +5,8 @@ import { Button } from "../button";
 import { CreditCardFormFields } from "../../types";
 
 export const CreditCardForm = () => {
-  const {
-    values,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    errors,
-    touched,
-    isSubmitting,
-  } = useFormikContext<CreditCardFormFields>();
+  const { values, handleChange, handleBlur, errors, touched } =
+    useFormikContext<CreditCardFormFields>();
 
   const { creditCardName, cardNumber, expirationDate, cvv } = values;
 
@@ -66,15 +59,6 @@ export const CreditCardForm = () => {
         onBlur={handleBlur}
         error={errors.cvv && touched.cvv ? errors.cvv : ""}
       />
-      <ButtonContainer>
-        <Button
-          style={{ width: "200px" }}
-          label="Order Now"
-          type="submit"
-          onClickHandler={handleSubmit}
-          disabled={isSubmitting}
-        />
-      </ButtonContainer>
     </>
   );
 };

@@ -6,3 +6,4 @@ export * from "./button";
 export * from "./creditCardForm";
 export * from "./input";
 export * from "./userDetailsForm";
+export * from "./error";

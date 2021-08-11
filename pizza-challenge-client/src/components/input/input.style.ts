@@ -26,8 +26,3 @@ export const InputLabel = styled.label({
   display: "inline-block",
   marginBottom: ".5rem",
 });
-export const InputError = styled.div({
-  marginTop: ".25rem",
-  fontSize: ".875em",
-  color: "#dc3545",
-});

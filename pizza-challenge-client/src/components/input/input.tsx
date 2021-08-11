@@ -1,10 +1,6 @@
 import { CSSProperties, InputHTMLAttributes } from "react";
-import {
-  StyledInput,
-  InputContainer,
-  InputLabel,
-  InputError,
-} from "./input.style";
+import { StyledInput, InputContainer, InputLabel } from "./input.style";
+import { Error } from "../error";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -18,7 +14,7 @@ export const Input = (props: InputProps) => {
     <InputContainer style={containerStyle}>
       <InputLabel>{label}</InputLabel>
       <StyledInput data-testid="base-input" {...rest} />
-      {error && <InputError>{error}</InputError>}
+      {error && <Error>{error}</Error>}
     </InputContainer>
   );
 };

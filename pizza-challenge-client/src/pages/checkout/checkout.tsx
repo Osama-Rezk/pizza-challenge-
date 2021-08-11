@@ -9,11 +9,17 @@ import {
   DetailsContainer,
   Title,
   Value,
+  ButtonContainer,
 } from "./checkout.style";
 import { Size, Addon } from "../../types";
 import { calculatePizzaPrice, client, checkoutSchema } from "../../utils";
-import { CreditCardForm, UserDetailsForm } from "../../components";
-import { Formik } from "formik";
+import {
+  CreditCardForm,
+  UserDetailsForm,
+  Button,
+  Error,
+} from "../../components";
+import { Form, Formik } from "formik";
 import { UserDetailsFormFields, CreditCardFormFields } from "../../types";
 
 type CheckoutForm = UserDetailsFormFields & CreditCardFormFields;
@@ -27,7 +33,7 @@ interface Order {
 
 export const Checkout = () => {
   const history = useHistory();
-  const { isLoading, isError, isSuccess, mutate } = useMutation(
+  const { isLoading, isError, mutate } = useMutation(
     (updates: Order) =>
       client(`orders`, {
         data: updates,
@@ -128,7 +134,7 @@ export const Checkout = () => {
         validationSchema={checkoutSchema}
         onSubmit={onSubmit}
       >
-        <>
+        <Form>
           <Section>
             <SectionTitle>User Details </SectionTitle>
             <SectionBody>
@@ -140,9 +146,20 @@ export const Checkout = () => {
             <SectionTitle>Payment </SectionTitle>
             <SectionBody>
               <CreditCardForm />
+              <ButtonContainer>
+                <div>
+                  {isError && <Error>Some thing bad happen in ordering </Error>}
+                  <Button
+                    style={{ width: "200px" }}
+                    label={isLoading ? "loading .." : "Order Now"}
+                    type="submit"
+                    disabled={isLoading}
+                  />
+                </div>
+              </ButtonContainer>
             </SectionBody>
           </Section>
-        </>
+        </Form>
       </Formik>
     </Container>
   );
