@@ -21,6 +21,7 @@ import {
 } from "../../components";
 import { Form, Formik } from "formik";
 import { UserDetailsFormFields, CreditCardFormFields } from "../../types";
+import { useEffect } from "react";
 
 type CheckoutForm = UserDetailsFormFields & CreditCardFormFields;
 
@@ -49,7 +50,7 @@ export const Checkout = () => {
     description,
     size,
     selectedAddons = [],
-  } = JSON.parse(localStorage.getItem("pizza") || "") as {
+  } = JSON.parse(localStorage.getItem("pizza") || "{}") as {
     name: string;
     description: string;
     size: Size;
@@ -76,9 +77,21 @@ export const Checkout = () => {
     mutate(data, {
       onSuccess: (order: Order) => {
         history.push(`/order/${order.id}`);
+        localStorage.removeItem("pizza");
       },
     });
   };
+
+  // handle if user go directly to checkout page
+  useEffect(() => {
+    if (!itemId) {
+      setTimeout(() => history.push("/"), 2000);
+    }
+  }, []);
+
+  if (!itemId) {
+    return <div>please select a pizza first</div>;
+  }
 
   return (
     <Container>
