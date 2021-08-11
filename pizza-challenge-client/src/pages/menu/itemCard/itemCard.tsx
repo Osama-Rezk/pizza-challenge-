@@ -19,7 +19,7 @@ export function ItemCard(props: ItemCardProps) {
   const { item, onClick } = props;
   const { name, images, description } = item;
   return (
-    <Container onClick={() => onClick(item)}>
+    <Container onClick={() => onClick(item)} data-testid="item-container">
       <StyledImage
         alt={`a picture of Pizza ${name}`}
         id="artistpic"
