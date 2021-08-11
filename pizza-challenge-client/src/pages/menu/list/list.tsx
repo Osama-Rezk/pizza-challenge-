@@ -10,8 +10,12 @@ export function List(props: ListProps) {
   const { items = [], onItemClick } = props;
   return (
     <Container data-testid="pizza-list">
-      {items.map((item: PizzaItem) => (
-        <ItemCard onClick={onItemClick} item={item} />
+      {items.map((item: PizzaItem, index) => (
+        <ItemCard
+          onClick={onItemClick}
+          item={item}
+          key={`${index}_${item.name}`}
+        />
       ))}
     </Container>
   );
