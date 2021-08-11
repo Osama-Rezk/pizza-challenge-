@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Modal, CheckInput, Accordion, Button } from "../../../components";
+import {
+  Modal,
+  CheckInput,
+  Accordion,
+  Button,
+  Error,
+} from "../../../components";
 import { PizzaItem, Size, Addon } from "../../../types";
 import {
   Name,
@@ -27,9 +33,13 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const { setIsOpen, isOpen, selectedItem } = props;
   const [size, setSize] = useState({} as Size);
   const [selectedAddons, setSelectedAddons] = useState<Addon[]>([]);
+  const [error, setError] = useState("");
 
   const { name, description, sizes = [], addons = [] } = selectedItem;
+
   const price = calculatePizzaPrice(size, selectedAddons);
+
+  const canCheckout = !!(size.name && selectedAddons.length);
 
   const history = useHistory();
 
@@ -70,6 +80,9 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   }
 
   function goToCheckout() {
+    if (!canCheckout) {
+      return setError(`You must select a size and at least addons`);
+    }
     localStorage.setItem(
       "pizza",
       JSON.stringify({
@@ -121,11 +134,14 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
       </Accordion>
 
       <ButtonContainer>
-        <Button
-          style={{ width: "200px" }}
-          label="CHECKOUT"
-          onClickHandler={goToCheckout}
-        />
+        <div>
+          {!canCheckout && error && <Error>{error}</Error>}
+          <Button
+            style={{ width: "200px" }}
+            label="CHECKOUT"
+            onClickHandler={goToCheckout}
+          />
+        </div>
       </ButtonContainer>
     </Modal>
   );
