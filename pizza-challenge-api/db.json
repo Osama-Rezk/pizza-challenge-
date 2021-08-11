@@ -353,6 +353,74 @@
           "price": 2
         }
       ]
+    },
+    {
+      "pizzaName": "Margherita Pizza      ",
+      "description": "Mozzarella cheese and pizza sauce      .",
+      "size": {
+        "name": "Large",
+        "price": 60
+      },
+      "selectedAddons": [
+        {
+          "name": "Pepper",
+          "price": 2
+        }
+      ],
+      "userDetails": {
+        "name": "yo",
+        "street": "steet",
+        "city": "my city",
+        "phoneNumber": "+20101048545",
+        "houseNumber": "20",
+        "postalCode": "11234"
+      },
+      "id": "FF_b8HC"
+    },
+    {
+      "pizzaName": "Vegetables Pizza",
+      "description": "Onions, olives, green peppers, tomatoes, mozzarella cheese and tomato sauce.",
+      "size": {
+        "name": "medium",
+        "price": 40
+      },
+      "selectedAddons": [
+        {
+          "name": "Pepperoni",
+          "price": 4
+        }
+      ],
+      "userDetails": {
+        "name": "ytgrfd",
+        "street": "kujyhgdfsa",
+        "city": "l.kjhgfsd",
+        "phoneNumber": "+497554147455",
+        "houseNumber": "jhgfds",
+        "postalCode": "123456"
+      },
+      "id": "otgV5ge"
+    },
+    {
+      "itemId": "1",
+      "size": {
+        "name": "medium",
+        "price": 40
+      },
+      "selectedAddons": [
+        {
+          "name": "Mushrooms",
+          "price": 2
+        }
+      ],
+      "userDetails": {
+        "name": "yo ",
+        "street": "ghkjlk",
+        "city": "kgjhl",
+        "phoneNumber": "15444",
+        "houseNumber": "456",
+        "postalCode": "1234"
+      },
+      "id": "lPp7R6W"
     }
   ],
   "users": []

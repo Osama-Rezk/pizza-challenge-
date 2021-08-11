@@ -1,4 +1,5 @@
 import { useMutation } from "react-query";
+import { useHistory } from "react-router-dom";
 import {
   Container,
   SectionTitle,
@@ -10,14 +11,24 @@ import {
   Value,
 } from "./checkout.style";
 import { Size, Addon } from "../../types";
-import { calculatePizzaPrice, client } from "../../utils";
-import { CreditCardForm } from "../../components/creditCardForm";
+import { calculatePizzaPrice, client, checkoutSchema } from "../../utils";
+import { CreditCardForm, UserDetailsForm } from "../../components";
+import { Formik } from "formik";
+import { UserDetailsFormFields, CreditCardFormFields } from "../../types";
 
-interface CheckoutProps {}
+type CheckoutForm = UserDetailsFormFields & CreditCardFormFields;
 
-export const Checkout = (props: CheckoutProps) => {
+interface Order {
+  id?: string;
+  userDetails: UserDetailsFormFields;
+  selectedAddons: Addon[];
+  size: Size;
+}
+
+export const Checkout = () => {
+  const history = useHistory();
   const { isLoading, isError, isSuccess, mutate } = useMutation(
-    (updates) =>
+    (updates: Order) =>
       client(`orders`, {
         data: updates,
       }),
@@ -27,7 +38,8 @@ export const Checkout = (props: CheckoutProps) => {
   );
 
   const {
-    name,
+    id: itemId,
+    name: pizzaName,
     description,
     size,
     selectedAddons = [],
@@ -36,6 +48,30 @@ export const Checkout = (props: CheckoutProps) => {
     description: string;
     size: Size;
     selectedAddons: Addon[];
+    id: string;
+  };
+
+  const onSubmit = (values: CheckoutForm) => {
+    const { name, street, city, phoneNumber, houseNumber, postalCode } = values;
+    const data = {
+      itemId,
+      size,
+      selectedAddons,
+      userDetails: {
+        name,
+        street,
+        city,
+        phoneNumber,
+        houseNumber,
+        postalCode,
+      },
+    };
+
+    mutate(data, {
+      onSuccess: (order: Order) => {
+        history.push(`/order/${order.id}`);
+      },
+    });
   };
 
   return (
@@ -46,7 +82,7 @@ export const Checkout = (props: CheckoutProps) => {
           <DetailsContainer>
             <DetailsRaw>
               <Title> Name :</Title>
-              <Value data-testid="pizza-name"> {name}</Value>
+              <Value data-testid="pizza-name"> {pizzaName}</Value>
             </DetailsRaw>
 
             <DetailsRaw>
@@ -76,12 +112,38 @@ export const Checkout = (props: CheckoutProps) => {
         </SectionBody>
       </Section>
 
-      <Section>
-        <SectionTitle>Payment </SectionTitle>
-        <SectionBody>
-          <CreditCardForm order={mutate} />
-        </SectionBody>
-      </Section>
+      <Formik
+        initialValues={{
+          name: "",
+          cardNumber: "",
+          expirationDate: "",
+          cvv: "",
+          creditCardName: "",
+          street: "",
+          city: "",
+          phoneNumber: "",
+          houseNumber: "",
+          postalCode: "",
+        }}
+        validationSchema={checkoutSchema}
+        onSubmit={onSubmit}
+      >
+        <>
+          <Section>
+            <SectionTitle>User Details </SectionTitle>
+            <SectionBody>
+              <UserDetailsForm />
+            </SectionBody>
+          </Section>
+
+          <Section>
+            <SectionTitle>Payment </SectionTitle>
+            <SectionBody>
+              <CreditCardForm />
+            </SectionBody>
+          </Section>
+        </>
+      </Formik>
     </Container>
   );
 };

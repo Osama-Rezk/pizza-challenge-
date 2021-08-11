@@ -1,87 +1,36 @@
-import valid from "card-validator";
-import { useFormik } from "formik";
-import { string, object } from "yup";
+import { useFormikContext } from "formik";
 import { ButtonContainer } from "./creditCardForm.style";
-import { UseMutationOptions } from "react-query";
 import { Input } from "../input";
 import { Button } from "../button";
-import { useHistory } from "react-router-dom";
+import { CreditCardFormFields } from "../../types";
 
-const creditCardSchema = object().shape({
-  cardNumber: string()
-    .test(
-      "test-number",
-      "Credit Card number is invalid",
-      (value) => valid.number(value).isValid
-    )
-    .required(),
-
-  name: string().required("Please Enter Credit Card Name "),
-
-  cvv: string()
-    .test(
-      "test-cvv",
-      "cvv  number is invalid",
-      (value) => valid.cvv(value).isValid
-    )
-    .required(),
-
-  expirationDate: string()
-    .test(
-      "test-exp",
-      "Expiration Date is invalid",
-      (value) => valid.expirationDate(value).isValid
-    )
-    .required(),
-});
-
-interface CreditCardFormProps {
-  order: (item: any, options: UseMutationOptions) => void;
-}
-export const CreditCardForm = (props: CreditCardFormProps) => {
-  const history = useHistory();
-
-  const { order } = props;
-
+export const CreditCardForm = () => {
   const {
+    values,
     handleSubmit,
     handleChange,
     handleBlur,
-    values,
     errors,
     touched,
     isSubmitting,
-  } = useFormik({
-    initialValues: {
-      name: "",
-      cardNumber: "",
-      expirationDate: "",
-      cvv: "",
-    },
-    onSubmit: async (values, { setSubmitting }) => {
-      try {
-        await order(JSON.parse(localStorage.getItem("pizza") || ""), {
-          onSuccess: (d) => history.push("/order/1"),
-        });
-      } catch (error) {
-        setSubmitting(false);
-      }
-    },
-    validationSchema: creditCardSchema,
-  });
+  } = useFormikContext<CreditCardFormFields>();
 
-  const { name, cardNumber, expirationDate, cvv } = values;
+  const { creditCardName, cardNumber, expirationDate, cvv } = values;
 
   return (
-    <div>
+    <>
       <Input
-        label="Name"
-        name="name"
-        placeholder="Name"
-        value={name}
+        label="Card Name"
+        name="creditCardName"
+        placeholder="Credit Card Name"
+        value={creditCardName}
         onChange={handleChange}
         onBlur={handleBlur}
-        error={errors.name && touched.name ? errors.name : ""}
+        error={
+          errors.creditCardName && touched.creditCardName
+            ? errors.creditCardName
+            : ""
+        }
       />
 
       <Input
@@ -126,6 +75,6 @@ export const CreditCardForm = (props: CreditCardFormProps) => {
           disabled={isSubmitting}
         />
       </ButtonContainer>
-    </div>
+    </>
   );
 };
