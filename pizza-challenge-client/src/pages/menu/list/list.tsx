@@ -7,7 +7,7 @@ interface ListProps {
 }
 
 export function List(props: ListProps) {
-  const { items, onItemClick } = props;
+  const { items = [], onItemClick } = props;
   return (
     <Container data-testid="pizza-list">
       {items.map((item: PizzaItem) => (

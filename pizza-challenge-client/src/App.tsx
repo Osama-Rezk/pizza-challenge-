@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { mq, space } from "./styles";
 import Routes from "./routes";
 import { AppProviders } from "./context";
+import { ErrorBoundary, FallbackProps } from "react-error-boundary";
 
 export const Container = styled.div({
   maxWidth: 1170,
@@ -18,9 +19,22 @@ export const Container = styled.div({
   },
 });
 
+function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error?.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
+
 function App() {
   return (
-    <>
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => window.location.reload()}
+    >
       <Global
         styles={css`
           body {
@@ -43,7 +57,7 @@ function App() {
           <Routes />
         </Container>
       </AppProviders>
-    </>
+    </ErrorBoundary>
   );
 }
 

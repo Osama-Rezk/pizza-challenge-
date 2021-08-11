@@ -39,3 +39,20 @@ export interface Authentication {
   register: () => Promise<any>;
   isLoggedIn: boolean;
 }
+
+export interface CreditCardFormFields {
+  creditCardName: string;
+  cardNumber: string;
+  expirationDate: string;
+  cvv: string;
+}
+
+export interface UserDetailsFormFields {
+  name: string;
+  street: string;
+  city: string;
+  phoneNumber: string;
+
+  houseNumber: string;
+  postalCode: string;
+}
