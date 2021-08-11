@@ -8,6 +8,7 @@ export const Container = styled.div({
   boxShadow: "0 1px 4px rgb(41 51 57 / 50%)",
   minWidth: 300,
   height: 310,
+  cursor: "pointer",
 });
 
 export const InfoContainer = styled.div({
