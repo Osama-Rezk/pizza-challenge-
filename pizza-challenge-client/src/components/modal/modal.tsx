@@ -76,7 +76,7 @@ export function Modal(props: PropsWithChildren<ModalProps>) {
             ref={backdrop}
             className={active && open ? "active" : undefined}
           >
-            <Content className="modal-content">
+            <Content className="modal-content" data-testid="modal-container">
               <ModalHeader>
                 <ModalTitle>{title}</ModalTitle>
                 <CloseWrapper onClick={onClose}>
