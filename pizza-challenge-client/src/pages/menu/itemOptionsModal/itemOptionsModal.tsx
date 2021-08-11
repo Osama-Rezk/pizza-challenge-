@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {
   Modal,
@@ -42,6 +42,13 @@ export const ItemOptionsModal = (props: ItemOptionsModalProps) => {
   const canCheckout = !!(size.name && selectedAddons.length);
 
   const history = useHistory();
+
+  useEffect(() => {
+    if (!isOpen) {
+      setSize({} as Size);
+      setSelectedAddons([]);
+    }
+  }, [isOpen]);
 
   const renderSizes = () => {
     return sizes.map(({ name, price }: Size, index) => (
