@@ -3,6 +3,7 @@ import {
   screen,
   waitForElementToBeRemoved,
   fireEvent,
+  waitFor,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppProviders } from "../../context";
@@ -56,53 +57,33 @@ describe("Checkout", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
 
-    expect(
-      await screen.findByText("Please Enter Your Name")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText(/Please Enter Your street Name/i)
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Please Enter Your City Name")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Please Enter Your House Number")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Please Enter Your Postal Code")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Please Enter Your Phone Number")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Please Enter Credit Card Name")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Credit Card number is invalid")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("Expiration Date is invalid")
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText("cvv number is invalid")
-    ).toBeInTheDocument();
-  });
-
-  test.skip("Should Write form and go to confirmation page", async () => {
-    renderCheckout();
-
-    for (const key in formData) {
-      //@ts-ignore
-
-      userEvent.type(screen.getByTestId(key), formData[key]);
-    }
-
-    await sleep(1000);
-
-    fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
-
-    await sleep(1000);
-
-    expect(await screen.findByTestId("confirmation-page")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("Please Enter Your Name")).toBeInTheDocument();
+      expect(
+        screen.getByText(/Please Enter Your street Name/i)
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Please Enter Your City Name")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Please Enter Your House Number")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Please Enter Your Postal Code")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Please Enter Your Phone Number")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Please Enter Credit Card Name")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Credit Card number is invalid")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("Expiration Date is invalid")
+      ).toBeInTheDocument();
+      expect(screen.getByText("cvv number is invalid")).toBeInTheDocument();
+    });
   });
 });
