@@ -13,7 +13,7 @@ export const Input = (props: InputProps) => {
   return (
     <InputContainer style={containerStyle}>
       <InputLabel>{label}</InputLabel>
-      <StyledInput data-testid={name || "base-input"} {...rest} />
+      <StyledInput data-testid={name || "base-input"} name={name} {...rest} />
       {error && <Error>{error}</Error>}
     </InputContainer>
   );

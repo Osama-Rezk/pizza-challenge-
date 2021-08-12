@@ -4,6 +4,7 @@ import {
   waitForElementToBeRemoved,
   fireEvent,
 } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { AppProviders } from "../../context";
 import { Pizzas } from "../../test/data";
 import App from "../../App";
@@ -85,5 +86,23 @@ describe("Checkout", () => {
     expect(
       await screen.findByText("cvv number is invalid")
     ).toBeInTheDocument();
+  });
+
+  test.skip("Should Write form and go to confirmation page", async () => {
+    renderCheckout();
+
+    for (const key in formData) {
+      //@ts-ignore
+
+      userEvent.type(screen.getByTestId(key), formData[key]);
+    }
+
+    await sleep(1000);
+
+    fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
+
+    await sleep(1000);
+
+    expect(await screen.findByTestId("confirmation-page")).toBeInTheDocument();
   });
 });

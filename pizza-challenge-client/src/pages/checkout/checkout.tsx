@@ -73,10 +73,6 @@ export const Checkout = () => {
         postalCode,
       },
     };
-    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
-    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
-    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
-    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
 
     mutate(data, {
       onSuccess: (order: Order) => {
