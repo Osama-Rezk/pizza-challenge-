@@ -55,29 +55,35 @@ describe("Checkout", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
 
-    await sleep(1000);
-
-    expect(screen.getByText("Please Enter Your Name")).toBeInTheDocument();
     expect(
-      screen.getByText(/Please Enter Your street Name/i)
-    ).toBeInTheDocument();
-    expect(screen.getByText("Please Enter Your City Name")).toBeInTheDocument();
-    expect(
-      screen.getByText("Please Enter Your House Number")
+      await screen.findByText("Please Enter Your Name")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Please Enter Your Postal Code")
+      await screen.findByText(/Please Enter Your street Name/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Please Enter Your Phone Number")
+      await screen.findByText("Please Enter Your City Name")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Please Enter Credit Card Name")
+      await screen.findByText("Please Enter Your House Number")
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Credit Card number is invalid")
+      await screen.findByText("Please Enter Your Postal Code")
     ).toBeInTheDocument();
-    expect(screen.getByText("Expiration Date is invalid")).toBeInTheDocument();
-    expect(screen.getByText("cvv number is invalid")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Please Enter Your Phone Number")
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText("Please Enter Credit Card Name")
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText("Credit Card number is invalid")
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText("Expiration Date is invalid")
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText("cvv number is invalid")
+    ).toBeInTheDocument();
   });
 });
