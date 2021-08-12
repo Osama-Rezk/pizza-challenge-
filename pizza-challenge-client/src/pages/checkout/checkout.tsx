@@ -94,7 +94,7 @@ export const Checkout = () => {
   }
 
   return (
-    <Container>
+    <Container data-testid="checkout-page">
       <Section>
         <SectionTitle>Order Summary </SectionTitle>
         <SectionBody>

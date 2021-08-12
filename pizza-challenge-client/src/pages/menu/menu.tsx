@@ -17,9 +17,9 @@ export function Menu() {
     setIsOpen(true);
   };
 
-  if (isLoading) return <div>"Loading..."</div>;
+  if (isLoading) return <div>Loading...</div>;
 
-  if (error) return <div> "An error has occurred: "</div>;
+  if (error) return <div> An error has occurred: </div>;
 
   return (
     <div style={{ width: "100%" }}>
