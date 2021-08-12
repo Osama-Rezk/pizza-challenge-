@@ -3,14 +3,10 @@ import {
   screen,
   waitForElementToBeRemoved,
   fireEvent,
-  cleanup,
 } from "@testing-library/react";
-import { Menu } from "../menu";
 import { AppProviders } from "../../context";
 import { Pizzas } from "../../test/data";
 import App from "../../App";
-
-afterEach(cleanup);
 
 const renderMenu = () => render(<App />, { wrapper: AppProviders });
 
