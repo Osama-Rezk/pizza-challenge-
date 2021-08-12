@@ -15,7 +15,7 @@ export const creditCardSchema = object().shape({
   cvv: string()
     .test(
       "test-cvv",
-      "cvv  number is invalid",
+      "cvv number is invalid",
       (value) => valid.cvv(value).isValid
     )
     .required(),
@@ -30,17 +30,17 @@ export const creditCardSchema = object().shape({
 });
 
 export const userDetailsSchema = object().shape({
-  name: string().required("Please Enter Your Name "),
+  name: string().required("Please Enter Your Name"),
 
-  city: string().required("Please Enter Your City Name "),
+  city: string().required("Please Enter Your City Name"),
 
-  street: string().required("Please Enter Your  street Name "),
+  street: string().required("Please Enter Your street Name"),
 
-  phoneNumber: string().required("Please Enter Your Phone Number   "),
+  phoneNumber: string().required("Please Enter Your Phone Number"),
 
-  houseNumber: string().required("Please Enter Your House Number "),
+  houseNumber: string().required("Please Enter Your House Number"),
 
-  postalCode: string().required("Please Enter Your Postal Code "),
+  postalCode: string().required("Please Enter Your Postal Code"),
 });
 
 export const checkoutSchema = object().shape({

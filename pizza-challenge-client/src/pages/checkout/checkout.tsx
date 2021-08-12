@@ -23,9 +23,9 @@ import { Form, Formik } from "formik";
 import { UserDetailsFormFields, CreditCardFormFields } from "../../types";
 import { useEffect } from "react";
 
-type CheckoutForm = UserDetailsFormFields & CreditCardFormFields;
+export type CheckoutForm = UserDetailsFormFields & CreditCardFormFields;
 
-interface Order {
+export interface Order {
   id?: string;
   userDetails: UserDetailsFormFields;
   selectedAddons: Addon[];
@@ -73,6 +73,10 @@ export const Checkout = () => {
         postalCode,
       },
     };
+    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
+    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
+    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
+    console.log("<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> called ");
 
     mutate(data, {
       onSuccess: (order: Order) => {

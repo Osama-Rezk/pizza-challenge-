@@ -12,7 +12,7 @@ export const Header = (props: HTMLAttributes<HTMLHeadElement>) => {
         <div>Home</div>
       </Link>
       <NameBtnContainer>
-        <UserName data-testid="name">Welcome {user.name}</UserName>
+        <UserName data-testid="user-name">Welcome {user.name}</UserName>
       </NameBtnContainer>
     </Container>
   );

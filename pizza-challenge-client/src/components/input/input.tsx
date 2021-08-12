@@ -9,11 +9,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = (props: InputProps) => {
-  const { label, error, containerStyle, ...rest } = props;
+  const { label, error, name, containerStyle, ...rest } = props;
   return (
     <InputContainer style={containerStyle}>
       <InputLabel>{label}</InputLabel>
-      <StyledInput data-testid="base-input" {...rest} />
+      <StyledInput data-testid={name || "base-input"} {...rest} />
       {error && <Error>{error}</Error>}
     </InputContainer>
   );
