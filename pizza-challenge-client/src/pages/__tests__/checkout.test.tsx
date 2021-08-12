@@ -86,4 +86,20 @@ describe("Checkout", () => {
       expect(screen.getByText("cvv number is invalid")).toBeInTheDocument();
     });
   });
+
+  test.skip("Should Write form and go to confirmation page", async () => {
+    renderCheckout();
+
+    for (const key in formData) {
+      //@ts-ignore
+
+      userEvent.type(screen.getByTestId(key), formData[key]);
+    }
+
+    fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
+
+    await waitFor(() =>
+      expect(screen.getByTestId("confirmation-page")).toBeInTheDocument()
+    );
+  });
 });
