@@ -7,7 +7,6 @@ const handlers = [
   }),
 
   rest.post("http://localhost:5000/orders", async (req, res, ctx) => {
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< here");
     return res(ctx.json(order));
   }),
 ];

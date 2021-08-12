@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppProviders } from "../../context";
 import { Pizzas } from "../../test/data";
@@ -13,18 +7,16 @@ import { CheckoutForm } from "../checkout";
 
 let formData: CheckoutForm = {
   name: "User Name",
-  cardNumber: "User card Name",
+  cardNumber: "378282246310005",
   expirationDate: "05/24",
   cvv: "123",
-  creditCardName: "378282246310005",
+  creditCardName: "User card Name",
   street: "street name",
   city: "city name",
   phoneNumber: "030123456789",
   houseNumber: "50",
   postalCode: "1111111",
 };
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const renderCheckout = () => {
   window.history.pushState({}, "Test page", "/checkout");
@@ -87,7 +79,7 @@ describe("Checkout", () => {
     });
   });
 
-  test.skip("Should Write form and go to confirmation page", async () => {
+  test("Should Write form and go to confirmation page", async () => {
     renderCheckout();
 
     for (const key in formData) {
@@ -96,7 +88,7 @@ describe("Checkout", () => {
       userEvent.type(screen.getByTestId(key), formData[key]);
     }
 
-    fireEvent.click(screen.getByRole("button", { name: /Order Now/i }));
+    userEvent.click(screen.getByRole("button", { name: /Order Now/i }));
 
     await waitFor(() =>
       expect(screen.getByTestId("confirmation-page")).toBeInTheDocument()
